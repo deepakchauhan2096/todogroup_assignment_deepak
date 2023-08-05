@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addGroup, deleteGroup, updateGroupItems } from './redux/actions';
+import { deleteGroup, updateGroupItems } from './redux/actions';
 import TodoGroup from './components/TodoGroup';
 import axios from 'axios';
 import Modals from './components/Modal';
@@ -15,17 +15,6 @@ const App = () => {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
 
-  const handleAddGroup = () => {
-    const newGroup = {
-      id: groups.length + 1,
-      from: parseInt(from),
-      to: parseInt(to),
-      items: [],
-    };
-    dispatch(addGroup(newGroup));
-    setFrom('');
-    setTo('');
-  };
 
   const handleDeleteGroup = (groupId) => {
     dispatch(deleteGroup(groupId));
